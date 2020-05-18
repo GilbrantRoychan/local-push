@@ -1,0 +1,266 @@
+@font-face{
+	font-family: "Poppins_ExtraB";
+	src: url('font/poppins/Poppins-ExtraBold.ttf');
+}
+@font-face{
+	font-family: "poppins_";
+	src: url('font/poppins/Poppins-Medium.ttf');
+}
+/*font-family: "Poppins_ExtraB";*/
+/*font-family: "poppins_";*/
+/*background: #3ae374; */
+/*background: #32ff7e; */
+
+*{
+	margin: 0;
+	padding: 0;
+
+}
+body{
+	overflow-x: hidden;
+}
+
+img{
+	width: 500px;
+	height: 500px;
+}
+button{
+	padding: 16px 40px 16px 40px;
+	font-size: 15px;
+	font-family: "Poppins_";
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 3px;
+}
+h1{
+	font-family: "Poppins_ExtraB";
+	font-size: 40px;
+	
+	word-spacing: 2px;
+	padding-bottom: 30px;
+}
+
+
+/*kontainer*/
+.container{
+	width: 100%;
+	display: grid;
+	grid-template-areas: 
+	'header header'
+	'konten gambar';
+	
+}
+/*Navbar*/
+.navbar{
+	grid-area: header;
+}
+.navbar ul{
+	width: 80%;
+	display: flex;
+	justify-content: space-around;
+	list-style-type: none;
+	margin-top: 20px;
+}
+.navbar ul li{
+	align-self: center;
+
+
+}
+.navbar ul li a{
+	text-decoration: none;
+	color: #aaa;
+	cursor: pointer;
+}
+.navbar ul li a:hover{
+	color: black;
+}
+
+
+
+/*Button*/
+.primary{
+	border: none;
+	color: white;
+	background: #3ae374;
+	
+}
+.primary:hover{
+	background: #32ff7e;
+}
+.secondary{
+	background: none;
+	border: 1px solid black;
+	margin-right: -20px;
+
+}
+
+
+
+/*Konten*/
+.nama{
+	text-align: center;
+	align-self: center;
+	font-family: "poppins_";
+	font-weight: bold;
+	font-size: 17px;
+}
+.konten{
+	grid-area: konten;
+	margin: auto;
+	margin-left: 80px;
+	font-family: "Poppins_ExtraB";
+}
+.konten p{
+	font-family: "poppins_";
+	
+	padding-bottom: 40px;
+}
+
+
+/*Gambar*/
+.gambar{
+	grid-area: gambar;
+}
+
+
+
+/*Humberger btn klik*/
+.humberger-klik{
+	grid-area: header;
+	align-self: center;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	opacity: 0;
+}
+.humberger-klik span{
+	width: 30px;
+	height: 4px;
+	background: #3ae374;
+	border-radius: 3px;
+	transition: all 0.5s;
+}
+.humberger-klik input{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	cursor: pointer;
+	opacity:0;
+	z-index: 1;
+}
+
+
+
+/*Humberger animatioan*/
+.humberger-klik span:nth-child(2){
+	transform-origin: 0 0; 
+}
+
+.humberger-klik input:checked ~ span:nth-child(2){
+	transform: rotate(45deg) translate(-1px, -1px);
+
+}
+
+.humberger-klik span:nth-child(4){
+	transform-origin: 0 0; 
+}
+
+.humberger-klik input:checked ~ span:nth-child(4){
+	transform: rotate(-45deg) translate(-1px, -2px);
+}
+.humberger-klik input:checked ~ span:nth-child(3){
+	transform: scale(0);
+	opacity: 0;
+}
+
+
+
+
+
+
+/*Break point */
+
+/*Ukuran Mobile*/
+@media screen and (max-width: 576px){
+	img{
+		width: 250px;
+		height: 250px;
+		
+	}
+	h1{
+		font-size: 22px;
+		font-weight: bold;
+	}
+	p{
+		font-size: 15px;
+	}
+
+	li .slide{
+		transform: translateX(0);
+	}
+	button{
+		align-items: center;
+		padding: 16px 40px 16px 40px;
+	}
+	.container{
+		grid-template-areas: 
+		'header'
+		'gambar'
+		'konten';
+		text-align: center;
+	}
+	.navbar{
+		background: lightgreen;
+		padding: 20px;
+
+	}
+	.navbar ul{
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin: 0;
+		height: 100%;
+		justify-content: space-around;
+		flex-direction: column;
+		align-items: center;
+		background: lightgreen;
+		z-index: -1;
+		width: 100%;
+		transform: translateX(100%);
+		transition: all 1.3s;
+		
+	}
+
+
+
+	.navbar ul.slide{
+		transform: translateX(0);
+		z-index: 0;
+		
+	}
+	.nama{
+		opacity: 0;
+	}
+
+	.konten{
+		font-size: 18px;
+		margin: auto;
+	}
+	
+	.humberger-klik{
+		align-items: center;
+		opacity: 1;
+		z-index: 2;
+	}
+	.primary{
+		margin-left: 20px;
+	}
+}
+
+
+
+
+
+
+
